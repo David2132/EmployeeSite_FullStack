@@ -1,0 +1,398 @@
+<div *ngIf="this.dataService.getVerifiedStatus()" >
+
+<div *ngIf="selectedEmployee">
+  <table>
+    <thead>
+      <th>Employee - Existing</th>
+    </thead>
+</table>
+  <form [formGroup] = "registeredForm">
+    <table>
+      <tr class ="form-group">
+      <td>
+        <label>First Name: </label>
+      </td>
+      <td>
+      <input type ="text" formControlName="First_Name" class =form-control placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && f.First_Name.errors }"/>
+      <div *ngIf="submitted && f.First_Name.errors" class="invalid-feedback">
+          <div *ngIf="f.First_Name.errors.required">First name is required!</div>
+          <div *ngIf="f.First_Name.errors.minlength">First name has to be at least two characters long!</div>
+          <div *ngIf="f.First_Name.errors.maxlength">First name has to be max 35 characters long!</div>
+          <div *ngIf="f.First_Name.errors.pattern">First name field characters can only be alphabetical! </div>
+      </div>
+    </td>
+  </tr>
+  <tr class ="form-group">
+      
+      <td>
+        <label>Last Name:</label>
+      </td>
+      <td>
+        <input  type ="text" formControlName="Last_Name"  class ="form-control" placeholder="Last Name"[ngClass]="{ 'is-invalid': submitted && f.Last_Name.errors }"/>
+        <div *ngIf="submitted && f.Last_Name.errors" class="invalid-feedback">
+            <div *ngIf="f.Last_Name.errors.required">Last name is required!</div>
+            <div *ngIf="f.Last_Name.errors.minlength">Last name has to be at least two characters long!</div>
+            <div *ngIf="f.Last_Name.errors.maxlength">Last name has to be max 35 characters long!</div>
+            <div *ngIf="f.Last_Name.errors.pattern">Last name field characters can only be alphabetical! </div>
+        </div>
+      </td>
+  </tr>
+  <tr class ="form-group">
+      <td>
+        <label>Address:</label>
+      </td>
+      <td>
+        <input  type ="text" formControlName="Address"   class ="form-control" placeholder="Address"[ngClass]="{ 'is-invalid': submitted && f.Address.errors }" />
+        <div *ngIf="submitted && f.Address.errors" class="invalid-feedback">
+            <div *ngIf="f.Address.errors.required">Address is required!</div>
+            <div *ngIf="f.Address.errors.minlength">Address has to be at least two characters long!</div>
+            <div *ngIf="f.Address.errors.maxlength">Address has to be max 35 characters long!</div>
+            <div *ngIf="f.Address.errors.pattern">Address field characters can only be alphabetical and numerical! </div>
+        </div>
+      </td>
+  </tr>
+  <tr class ="form-group">
+      <td>
+        <label>City:</label>
+      </td>
+      <td>
+        <input  type ="text" formControlName="City"  class ="form-control"placeholder="City" [ngClass]="{ 'is-invalid': submitted && f.City.errors }" />
+        <div *ngIf="submitted && f.City.errors" class="invalid-feedback">
+            <div *ngIf="f.City.errors.required">City is required!</div>
+            <div *ngIf="f.City.errors.minlength">City has to be at least 5 characters long!</div>
+            <div *ngIf="f.City.errors.maxlength">City has to be max 50 characters long!</div>
+            <div *ngIf="f.City.errors.pattern">City field characters can only be alphabetical! </div>
+        </div>
+      </td>
+  </tr>
+  <tr class ="form-group">
+    <td>
+      <label>State:</label>
+    </td>
+    <td>
+        <select  formContorlName="State"  class ="form-control">
+          <option value="AL">AL</option>
+          <option value="AK">AK</option>
+          <option value="AR">AR</option>	
+          <option value="AZ">AZ</option>
+          <option value="CA">CA</option>
+          <option value="CO">CO</option>
+          <option value="CT">CT</option>
+          <option value="DC">DC</option>
+          <option value="DE">DE</option>
+          <option value="FL">FL</option>
+          <option value="GA">GA</option>
+          <option value="HI">HI</option>
+          <option value="IA">IA</option>	
+          <option value="ID">ID</option>
+          <option value="IL">IL</option>
+          <option value="IN">IN</option>
+          <option value="KS">KS</option>
+          <option value="KY">KY</option>
+          <option value="LA">LA</option>
+          <option value="MA">MA</option>
+          <option value="MD">MD</option>
+          <option value="ME">ME</option>
+          <option value="MI">MI</option>
+          <option value="MN">MN</option>
+          <option value="MO">MO</option>	
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="NC">NC</option>	
+          <option value="NE">NE</option>
+          <option value="NH">NH</option>
+          <option value="NJ">NJ</option>
+          <option value="NM">NM</option>			
+          <option value="NV">NV</option>
+          <option value="NY">NY</option>
+          <option value="ND">ND</option>
+          <option value="OH">OH</option>
+          <option value="OK">OK</option>
+          <option value="OR">OR</option>
+          <option value="PA">PA</option>
+          <option value="RI">RI</option>
+          <option value="SC">SC</option>
+          <option value="SD">SD</option>
+          <option value="TN">TN</option>
+          <option value="TX">TX</option>
+          <option value="UT">UT</option>
+          <option value="VT">VT</option>
+          <option value="VA">VA</option>
+          <option value="WA">WA</option>
+          <option value="WI">WI</option>	
+          <option value="WV">WV</option>
+          <option value="WY">WY</option>
+        </select>  
+      </td>
+  </tr>
+  <tr class ="form-group">
+    <td>
+      <label>Zip/Postal Code:</label>
+    </td>
+    <td>
+      <input  type ="text" formControlName="Zip" class ="form-control" placeholder="Zip/Postal Code"[ngClass]="{ 'is-invalid': submitted && f.Zip.errors }" />
+      <div *ngIf="submitted && f.Zip.errors" class="invalid-feedback">
+          <div *ngIf="f.Zip.errors.required">Zip Code is required!</div>
+          <div *ngIf="f.Zip.errors.minlength">Zip Code has to be at least 5 digits long!</div>
+          <div *ngIf="f.Zip.errors.maxlength">Zip Code has to be max 8 digits long!</div>
+          <div *ngIf="f.Zip.errors.pattern">Zip Code characters can only be numerical! </div>
+      </div>
+    </td>
+  </tr>
+  <tr class ="form-group">
+    <td>
+      <label>Home Phone:    </label>
+
+    </td>
+    <td>
+      <input type ="text" formControlName="Home_Phone" class ="form-control" placeholder="Home Phone"[ngClass]="{ 'is-invalid': submitted && f.Home_Phone.errors }" />
+      <div *ngIf="submitted && f.Home_Phone.errors" class="invalid-feedback">
+          <div *ngIf="f.Home_Phone.errors.required">Home phone number is required!</div>
+          <div *ngIf="f.Home_Phone.errors.minlength">Home phone number has to be at least 10 digits long!</div>
+          <div *ngIf="f.Home_Phone.errors.maxlength">Home phone number has to be max 10 digits long!</div>
+          <div *ngIf="f.Home_Phone.errors.pattern">Home phone number can only be numerical! </div>
+      </div>
+    </td>
+  </tr>
+  <tr class ="form-group">
+    <td>
+      <label>Cell Phone:    </label>
+    </td>
+    <td>
+      <input type ="text" formControlName="Cell_Phone" class ="form-control" placeholder="Cell Phone"[ngClass]="{ 'is-invalid': submitted && f.Cell_Phone.errors }" />
+      <div *ngIf="submitted && f.Cell_Phone.errors" class="invalid-feedback">
+          <div *ngIf="f.Cell_Phone.errors.required">Cell phone number is required!</div>
+          <div *ngIf="f.Cell_Phone.errors.minlength">Cell phone number has to be at least 10 digits long!</div>
+          <div *ngIf="f.Cell_Phone.errors.maxlength">Cell phone number has to be max 10 digits long!</div>
+          <div *ngIf="f.Cell_Phone.errors.pattern">Cell phone number can only be numerical! </div>
+      </div>
+    </td>
+  </tr>
+  <tr class ="form-group">
+    <td>
+      <label>Email:</label>
+    </td>
+    <td>
+      <input type ="text" formControlName="Email" class ="form-control" placeholder="Email"[ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+      <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+          <div *ngIf="f.Email.errors.required">Email is required!</div>
+          <div *ngIf="f.Email.errors.minlength">Email has to be at least 10 characters long!</div>
+          <div *ngIf="f.Email.errors.maxlength">Email has to be max 50 characters long!</div>
+          <div *ngIf="f.Email.errors.pattern">Email's characters can only be alphabetical and numerical followed by '@Email.com'! </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><button type="button"  (click)="Save()">Save</button ><button (click) ="goCancel()">Cancel </button>
+    </td>
+  </tr>
+  </table>
+    </form>
+ </div>
+
+
+    <div *ngIf="!selectedEmployee">
+        <table>
+          <thead>
+            <th>Employee - Existing</th>
+          </thead>
+      </table>
+        <form [formGroup] = "registeredForm">
+          <table>
+            <tr class ="form-group">
+            <td>
+              <label>First Name: </label>
+            </td>
+            <td>
+            <input type ="text" formControlName="First_Name" class =form-control placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && f.First_Name.errors }"/>
+            <div *ngIf="submitted && f.First_Name.errors" class="invalid-feedback">
+                <div *ngIf="f.First_Name.errors.required">First name is required!</div>
+                <div *ngIf="f.First_Name.errors.minlength">First name has to be at least two characters long!</div>
+                <div *ngIf="f.First_Name.errors.maxlength">First name has to be max 35 characters long!</div>
+                <div *ngIf="f.First_Name.errors.pattern">First name field characters can only be alphabetical! </div>
+            </div>
+          </td>
+        </tr>
+        <tr class ="form-group">
+            
+            <td>
+              <label>Last Name:</label>
+            </td>
+            <td>
+              <input  type ="text" formControlName="Last_Name"  class ="form-control" placeholder="Last Name"[ngClass]="{ 'is-invalid': submitted && f.Last_Name.errors }"/>
+              <div *ngIf="submitted && f.Last_Name.errors" class="invalid-feedback">
+                  <div *ngIf="f.Last_Name.errors.required">Last name is required!</div>
+                  <div *ngIf="f.Last_Name.errors.minlength">Last name has to be at least two characters long!</div>
+                  <div *ngIf="f.Last_Name.errors.maxlength">Last name has to be max 35 characters long!</div>
+                  <div *ngIf="f.Last_Name.errors.pattern">Last name field characters can only be alphabetical! </div>
+              </div>
+            </td>
+        </tr>
+        <tr class ="form-group">
+            <td>
+              <label>Address:</label>
+            </td>
+            <td>
+              <input  type ="text" formControlName="Address"   class ="form-control" placeholder="Address"[ngClass]="{ 'is-invalid': submitted && f.Address.errors }" />
+              <div *ngIf="submitted && f.Address.errors" class="invalid-feedback">
+                  <div *ngIf="f.Address.errors.required">Address is required!</div>
+                  <div *ngIf="f.Address.errors.minlength">Address has to be at least two characters long!</div>
+                  <div *ngIf="f.Address.errors.maxlength">Address has to be max 35 characters long!</div>
+                  <div *ngIf="f.Address.errors.pattern">Address field characters can only be alphabetical and numerical! </div>
+              </div>
+            </td>
+        </tr>
+        <tr class ="form-group">
+            <td>
+              <label>City:</label>
+            </td>
+            <td>
+              <input  type ="text" formControlName="City"  class ="form-control"placeholder="City" [ngClass]="{ 'is-invalid': submitted && f.City.errors }" />
+              <div *ngIf="submitted && f.City.errors" class="invalid-feedback">
+                  <div *ngIf="f.City.errors.required">City is required!</div>
+                  <div *ngIf="f.City.errors.minlength">City has to be at least 5 characters long!</div>
+                  <div *ngIf="f.City.errors.maxlength">City has to be max 50 characters long!</div>
+                  <div *ngIf="f.City.errors.pattern">City field characters can only be alphabetical! </div>
+              </div>
+            </td>
+        </tr>
+        <tr class ="form-group">
+          <td>
+            <label>State:</label>
+          </td>
+          <td>
+              <select  formContorlName="State"  class ="form-control">
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AR">AR</option>	
+                <option value="AZ">AZ</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DC">DC</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="IA">IA</option>	
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="MA">MA</option>
+                <option value="MD">MD</option>
+                <option value="ME">ME</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MO">MO</option>	
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="NC">NC</option>	
+                <option value="NE">NE</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>			
+                <option value="NV">NV</option>
+                <option value="NY">NY</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WI">WI</option>	
+                <option value="WV">WV</option>
+                <option value="WY">WY</option>
+              </select>  
+            </td>
+        </tr>
+        <tr class ="form-group">
+          <td>
+            <label>Zip/Postal Code:</label>
+          </td>
+          <td>
+            <input  type ="text" formControlName="Zip" class ="form-control" placeholder="Zip/Postal Code"[ngClass]="{ 'is-invalid': submitted && f.Zip.errors }" />
+            <div *ngIf="submitted && f.Zip.errors" class="invalid-feedback">
+                <div *ngIf="f.Zip.errors.required">Zip Code is required!</div>
+                <div *ngIf="f.Zip.errors.minlength">Zip Code has to be at least 5 digits long!</div>
+                <div *ngIf="f.Zip.errors.maxlength">Zip Code has to be max 8 digits long!</div>
+                <div *ngIf="f.Zip.errors.pattern">Zip Code characters can only be numerical! </div>
+            </div>
+          </td>
+        </tr>
+        <tr class ="form-group">
+          <td>
+            <label>Home Phone:    </label>
+      
+          </td>
+          <td>
+            <input type ="text" formControlName="Home_Phone" class ="form-control" placeholder="Home Phone"[ngClass]="{ 'is-invalid': submitted && f.Home_Phone.errors }" />
+            <div *ngIf="submitted && f.Home_Phone.errors" class="invalid-feedback">
+                <div *ngIf="f.Home_Phone.errors.required">Home phone number is required!</div>
+                <div *ngIf="f.Home_Phone.errors.minlength">Home phone number has to be at least 10 digits long!</div>
+                <div *ngIf="f.Home_Phone.errors.maxlength">Home phone number has to be max 10 digits long!</div>
+                <div *ngIf="f.Home_Phone.errors.pattern">Home phone number can only be numerical! </div>
+            </div>
+          </td>
+        </tr>
+        <tr class ="form-group">
+          <td>
+            <label>Cell Phone:    </label>
+          </td>
+          <td>
+            <input type ="text" formControlName="Cell_Phone" class ="form-control" placeholder="Cell Phone"[ngClass]="{ 'is-invalid': submitted && f.Cell_Phone.errors }" />
+            <div *ngIf="submitted && f.Cell_Phone.errors" class="invalid-feedback">
+                <div *ngIf="f.Cell_Phone.errors.required">Cell phone number is required!</div>
+                <div *ngIf="f.Cell_Phone.errors.minlength">Cell phone number has to be at least 10 digits long!</div>
+                <div *ngIf="f.Cell_Phone.errors.maxlength">Cell phone number has to be max 10 digits long!</div>
+                <div *ngIf="f.Cell_Phone.errors.pattern">Cell phone number can only be numerical! </div>
+            </div>
+          </td>
+        </tr>
+        <tr class ="form-group">
+          <td>
+            <label>Email:</label>
+          </td>
+          <td>
+            <input type ="text" formControlName="Email" class ="form-control" placeholder="Email"[ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                <div *ngIf="f.Email.errors.required">Email is required!</div>
+                <div *ngIf="f.Email.errors.minlength">Email has to be at least 10 characters long!</div>
+                <div *ngIf="f.Email.errors.maxlength">Email has to be max 50 characters long!</div>
+                <div *ngIf="f.Email.errors.pattern">Email's characters can only be alphabetical and numerical followed by '@Email.com'! </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button type="button"  (click)="addEmployee()">Save</button ><button (click) ="goCancel()">Cancel </button>
+          </td>
+        </tr>
+        </table>
+        
+          </form>
+       
+</div>
+</div>
+<h1 *ngIf="!this.dataService.getVerifiedStatus()">
+    User must  <a routerLink="/login-page">login</a>!
+  </h1>

@@ -1,0 +1,42 @@
+<div>
+    <table>
+        <thead>
+          <th>Login Page</th>
+        </thead>
+    </table>
+<form [formGroup] = 'registeredForm'>
+<table>
+<tr class = "form-group">
+  <td><label>Email: </label> </td>
+  <td>
+    <input type ="text" formControlName="Email" class ="form-control" placeholder="Email"[ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+    <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+      <div *ngIf="f.Email.errors.required">Email is required!</div>
+      <div *ngIf="f.Email.errors.pattern">Email is not formatted correctly!</div>
+    </div>
+  </td>
+<tr class = 'form-group'>
+  <td>
+    <label>Password: </label>
+  </td>
+  <td>
+    <input type ="password" formControlName="Password" class ="form-control" placeholder="Password"[ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
+    <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+        <div *ngIf="f.Password.errors.required">Password is required!</div>
+    </div>  
+  </td>
+</tr>
+<tr class = 'form-group'>
+  <td>
+    
+  </td>
+  <td>
+    <button type="button"  (click)="Login()">Login</button >
+      <div *ngIf="submitted && !verfied && (!f.Email.errors || !f.Password.errors)" class="invalid-feedback">
+        Username or password is incorrect!
+      </div>
+    </td>
+  </tr>
+</table>
+  </form>
+</div>

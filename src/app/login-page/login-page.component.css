@@ -1,0 +1,30 @@
+#invalid {
+    color: red;
+    font-style: italic;
+}
+div {
+    border: 150pt;
+    border-left: 500pt;
+}
+button {
+    font-display: center; 
+    border: 100px;
+
+}
+table {
+	border: 2px solid black;
+	width: 600px;
+}
+div{
+	margin: auto;
+	max-width: 600px;
+}
+th {
+	background-color: gray;
+	color: white;
+	
+}
+.invalid-feedback{
+    font-size: 10pt;
+    color: red;
+  }

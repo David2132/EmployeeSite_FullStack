@@ -1,0 +1,35 @@
+label {
+  margin-right: 10pt;
+  align-content: left;
+}
+div {
+    margin-bottom: 10px;
+
+  margin-left: 10px;
+    
+}
+button {
+    align-content: center
+}
+
+table {
+	border: 2px solid gray;
+	border-collapse: collapse;
+	width: 600px;
+}
+
+th {
+	background-color: gray;
+	color: white;
+	
+}
+div{
+  margin: auto;
+  max-width: 600px;
+
+}
+.invalid-feedback{
+  
+  font-size: 10pt;
+  color: red;
+}

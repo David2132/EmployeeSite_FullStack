@@ -1,0 +1,18 @@
+table {
+	border: 2px solid black;
+	border-collapse: collapse;
+	width: 600px;
+}
+th,td {
+	border: 1px solid #AAAAAA;
+}
+th {
+	background-color: gray;
+
+	
+}
+div{
+	margin: auto;
+	max-width: 600px;
+  
+}

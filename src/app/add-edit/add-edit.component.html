@@ -1,0 +1,29 @@
+
+<div *ngIf="this.dataService.getVerifiedStatus()">
+
+<p>
+    <a routerLink="/detail/-1">
+    <button type ='submit' class = 'btn btn.primary' (click) = 'onSubmit()'>Add Employee</button>
+    </a>
+</p>
+<table>
+     <thead>
+        <th>Name</th>
+        <th>Email</th>
+    </thead>
+    <tbody>       
+        <tr *ngFor = "let employee of employees">
+            <td>
+              <a routerLink="/detail/{{employee.id}}">{{employee.first_NAME}} {{employee.last_NAME}}  </a>
+            </td>
+            <td>
+              {{employee.email}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<h1 *ngIf="!this.dataService.getVerifiedStatus()">
+  User must  <a routerLink="/login-page">login</a>!
+</h1>
+
