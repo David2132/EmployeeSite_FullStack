@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Location } from '@angular/common';
 import {DataService} from '../data.service';
@@ -16,14 +16,12 @@ export class FormComponent implements OnInit {
     private router:Router,
     private route: ActivatedRoute,
     private dataService: DataService,
-    private location: Location
     ) {
       this.getEmployee();
     
    }
    private registeredForm: FormGroup;
    employees: EmployeeInfo[];
-   count: number;
    employee: EmployeeInfo;
    Existing = false;
    submitted = false;
@@ -45,7 +43,6 @@ export class FormComponent implements OnInit {
       email: this.registeredForm.get('Email').value,
 
     }
-    console.log(temp)
         this.dataService.addEmployee(temp).subscribe(resp => {console.log(resp), this.router.navigateByUrl('/employee-list');
       }, error=>console.log(error));
         this.dataService.getEmployees();

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 //import {Employees} from '../Mock-Employees';
-
-import {Employee} from '../template/Employee';
 import {DataService} from '../data.service';
 import {EmployeeInfo} from '../template/EmployeeInfo'
 

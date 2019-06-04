@@ -42,7 +42,6 @@ export class LoginPageComponent implements OnInit {
       return
     }
     this.verified = true;
-    // this.router.navigateByUrl('/employee-list');
     this.router.navigateByUrl('/employee-list');
 
   }

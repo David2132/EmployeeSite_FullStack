@@ -11,9 +11,6 @@ import {EmployeeInfo} from './template/EmployeeInfo'
 )
 
 export class DataService {
-  random: EmployeeInfo[]
-  baseUrl:String = "http://localhost:8080/employees"
-  data = JSON.parse(JSON.stringify(JSONData))
   Employees: EmployeeInfo[]
   logindata=JSON.parse(JSON.stringify(JSONLogin))
   Users = this.logindata;
@@ -21,7 +18,7 @@ export class DataService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
    }
-  private Verified = false;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  private Verified = false;
   constructor(private httpClient:HttpClient) {
 }
    setEmployees(x:EmployeeInfo[]): void{
@@ -53,10 +50,6 @@ export class DataService {
     return of(this.Employees[i]);
        
   }
-
-
-
-  
   addEmployee(employee: EmployeeInfo){
     return this.httpClient.post<EmployeeInfo>(`http://localhost:8080/employees`,employee,this.httpOptions);
     }
