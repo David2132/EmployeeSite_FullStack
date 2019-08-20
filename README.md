@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
+## Exmaple Pictures Folder
+This project will not show data when ran due to the data server not being ran. The folder called 'Example Pictures' will have images of how the application works and design. 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
